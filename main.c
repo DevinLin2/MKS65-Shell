@@ -5,15 +5,23 @@
 #include <string.h>
 
 int main(int argc, char const *argv[]) {
-  char string[128];
-  fgets(string, 128, stdin);
-  strtok(string, "\n");
-  printf("entered: %s\n", string);
-  char ** args = parse_args(string);
-  for (size_t i = 0; args[i] != NULL; i++) {
-    printf("%s ", args[i]);
+  int exit = 0;
+  while(!exit){
+    char string[128];
+    fgets(string, 128, stdin);
+    strtok(string, "\n");
+    printf("entered: %s\n", string);
+    char ** args = parse_args(string);
+    for (size_t i = 0; args[i] != NULL; i++) {
+      printf("%s ", args[i]);
+    }
+    printf("\n");
+    int f = fork();
+    if (f){
+        wait(status);
+    }else{
+        execvp(args[0], args);
+    }
   }
-  printf("\n");
-  execvp(args[0], args);
   return 0;
 }
