@@ -9,9 +9,9 @@ int main(int argc, char const *argv[]) {
   int exit = 0;
   while(!exit){
     char string[128];
+    printf("gush$ ");
     fgets(string, 128, stdin);
     strtok(string, "\n");
-    printf("entered: %s\n", string);
     char ** args = parse_args(string);
     for (size_t i = 0; args[i] != NULL; i++) {
       printf("%s ", args[i]);
@@ -23,6 +23,9 @@ int main(int argc, char const *argv[]) {
         wait(waitstatus);
     }else{
         execvp(args[0], args);
+    }
+    for (size_t i = 0; args[i] != NULL; i++) {
+      free(args[i]);
     }
   }
   return 0;
