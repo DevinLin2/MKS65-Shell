@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
 #include "parse.h"
 #include <string.h>
 
@@ -17,8 +18,9 @@ int main(int argc, char const *argv[]) {
     }
     printf("\n");
     int f = fork();
+    int * waitstatus;
     if (f){
-        wait(status);
+        wait(waitstatus);
     }else{
         execvp(args[0], args);
     }
