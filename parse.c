@@ -22,3 +22,12 @@ size_t arg_len(char ** args){
   }
   return len;
 }
+
+int hasredirect(char ** args){
+  for (size_t i = 0; args[i] != NULL; i++) {
+    if(strcmp(args[i],"<") == 0 || strcmp(args[i], ">")==0){
+      return 1;
+    }
+  }
+  return 0;
+}
