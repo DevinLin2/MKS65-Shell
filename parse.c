@@ -14,3 +14,11 @@ char ** parse_args( char * line ){
   }
   return args;
 }
+
+size_t arg_len(char ** args){
+  size_t len = 0;
+  for (size_t i = 0; args[i] != NULL; i++) {
+    len++;
+  }
+  return len;
+}
