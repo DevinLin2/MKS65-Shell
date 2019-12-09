@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-char ** parse_args( char * line ){
+char ** parse_args( char * line , char * token){
   char ** args = calloc(32, sizeof(char *));
   size_t argno = 0;
-  char * token = "";
   while(line != NULL && argno < 32){
     args[argno] = calloc(1,32);
     token = strsep(&line, " ");

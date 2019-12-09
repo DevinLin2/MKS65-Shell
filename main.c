@@ -5,11 +5,12 @@
 #include <string.h>
 #include "parse.h"
 #include "bashcommands.h"
+#include "redirect.h"
 
 int main(int argc, char const *argv[]) {
   int exit = 0;
   while(!exit){
-    char string[128]; 
+    char string[128];
     char * curdir;
     curdir = getcwd(curdir, 64);
     printf("gush:~%s$ ", curdir);
