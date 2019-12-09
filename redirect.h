@@ -1,0 +1,3 @@
+void handleredir(char * string){
+
+}
