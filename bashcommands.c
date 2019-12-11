@@ -5,7 +5,7 @@
 #include <string.h>
 #include <errno.h>
 
-void runprocess(char ** args, size_t arglen, int hasredirect){
+void runprocess(char ** args, size_t arglen){
   int f = fork();
   int * waitstatus;
   int err = 0;

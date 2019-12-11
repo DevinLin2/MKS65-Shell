@@ -1,3 +1,1 @@
-void handleredir(char * string){
-
-}
+void handleredir(char * string);

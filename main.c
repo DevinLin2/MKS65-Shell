@@ -16,13 +16,17 @@ int main(int argc, char const *argv[]) {
     printf("gush:~%s$ ", curdir);
     fgets(string, 128, stdin);
     strtok(string, "\n");
-    char ** args = parse_args(string, " ");
-    size_t arglen = arg_len(args);
-    int needsredirect = hasredirect(args);
-    if(arglen > 0 && strcmp(args[0], "exit") == 0){
-      return 0;
+    if(strstr(string, ">") != NULL){
+      handleredir(string);
+    } else{
+      char ** args = parse_args(string, " ");
+      size_t arglen = arg_len(args);
+      if(arglen > 0 && strcmp(args[0], "exit") == 0){
+        return 0;
+      } else{
+      runprocess(args, arglen);
+      }
     }
-    runprocess(args, arglen, needsredirect);
   }
   return 0;
 }
