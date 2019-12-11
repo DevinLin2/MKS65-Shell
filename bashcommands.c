@@ -17,6 +17,11 @@ void runprocess(char ** args, size_t arglen, int hasredirect){
     }else{
       err = chdir(args[1]);
     }
+  }else if(arglen > 1 && strcmp(args[0], "echo")== 0){
+    for (size_t i = 1; args[i] != NULL; i++) {
+      printf("%s ",args[i]);
+    }
+    printf("\n");
   }else{
       err = execvp(args[0], args);
   }
