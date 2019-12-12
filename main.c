@@ -6,11 +6,13 @@
 #include "parse.h"
 #include "bashcommands.h"
 #include "redirect.h"
+#include "semicolon.h"
 
 int main(int argc, char const *argv[]) {
   int exit = 0;
   while(!exit){
     char string[128];
+    char ** semicolonString;
     char * curdir;
     curdir = getcwd(curdir, 64);
     printf("gush:~%s$ ", curdir);
@@ -18,12 +20,27 @@ int main(int argc, char const *argv[]) {
     strtok(string, "\n");
     if(strstr(string, ">") != NULL){
       handleredir(string);
-    } else{
+    } else if (strstr(string, ";") != NULL) {
+      // printf("%d\n", countSemicolon(string));
+      semicolonString = handleSemicolon(string);
+      // for (size_t i = 0; semicolonString[i] != NULL; i++) {
+      //   printf("%s\n", semicolonString[i]);
+      // }
+      for (size_t i = 0; semicolonString[i] != NULL; i++) {
+        char ** args = parse_args(semicolonString[i], " ");
+        size_t arglen = arg_len(args);
+        if(arglen > 0 && strcmp(args[0], "exit") == 0){
+          return 0;
+        } else {
+        runprocess(args, arglen);
+        }
+      }
+    } else {
       char ** args = parse_args(string, " ");
       size_t arglen = arg_len(args);
       if(arglen > 0 && strcmp(args[0], "exit") == 0){
         return 0;
-      } else{
+      } else {
       runprocess(args, arglen);
       }
     }
