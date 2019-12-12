@@ -14,7 +14,7 @@ char* trim_string(char * str){
   return str;
 }
 
-char ** parse_args( char * line , char * delimiter){
+char ** parse_args(char * line , char * delimiter){
   char ** args = calloc(32, sizeof(char *));
   size_t argno = 0;
   char * token = "";

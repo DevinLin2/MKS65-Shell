@@ -10,20 +10,20 @@ void runprocess(char ** args, size_t arglen){
   int * waitstatus;
   int err = 0;
   if (f){
-      wait(waitstatus);
+    wait(waitstatus);
   }else if(arglen > 0 && strcmp(args[0], "cd") == 0){
     if(arglen == 1){
       err = chdir(getenv("HOME"));
     }else{
       err = chdir(args[1]);
     }
-  }else if(arglen > 1 && strcmp(args[0], "echo")== 0){
+  }else if(arglen > 1 && strcmp(args[0], "echo") == 0){
     for (size_t i = 1; args[i] != NULL; i++) {
       printf("%s ",args[i]);
     }
     printf("\n");
   }else{
-      err = execvp(args[0], args);
+    err = execvp(args[0], args);
   }
   if(err){
     if(errno == 2){
