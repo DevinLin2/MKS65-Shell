@@ -4,17 +4,17 @@
 by Qiong Zhou Huang and Devin Lin
 
 Features:
-	Forks and executes commands!
-	Parses multiple commands on one line!
-	Redirects using >, <!
-  Switch between directories using cd!
-  Exits when you want it to!
-  Let's you pipe!
+* Forks and executes commands!
+* Parses multiple commands on one line!
+* Redirects using >, <!
+* Switch between directories using cd!
+* Exits when you want it to!
+* Let's you pipe!
 
 
 Attempted:
-	Could not get multiple redirects to work (i.e tr a-z A-Z < hi > die)
-  Multiple pipes don't work
+  * Could not get multiple redirects to work (i.e tr a-z A-Z < hi > die)
+  * Multiple pipes don't work
 
 Bugs:
 	Running the shell using a test_functions file might sometimes print the directory more than once
