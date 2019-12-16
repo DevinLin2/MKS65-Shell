@@ -8,6 +8,14 @@
 #include "parse.h"
 #include "bashcommands.h"
 
+/*
+ * Function:  handleredir
+ * --------------------
+ *
+ * string: the command line arguments
+ *
+ * returns: void function.
+ */
 void handleredir(char * string){
   int * waitstatus;
   int f = fork();
