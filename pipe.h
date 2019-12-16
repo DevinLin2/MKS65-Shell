@@ -1,0 +1,1 @@
+void handlePipe(char * string);
