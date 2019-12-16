@@ -18,15 +18,12 @@ int main(int argc, char const *argv[]) {
     printf("gush:~%s$ ", curdir);
     fgets(string, 128, stdin);
     strtok(string, "\n");
-    if(strstr(string, ">") != NULL){
-      handleredir(string);
-    } else if (strstr(string, ";") != NULL) {
-      // printf("%d\n", countSemicolon(string));
+     if (strstr(string, ";") != NULL) {
       semicolonString = handleSemicolon(string);
-      // for (size_t i = 0; semicolonString[i] != NULL; i++) {
-      //   printf("%s\n", semicolonString[i]);
-      // }
       for (size_t i = 0; semicolonString[i] != NULL; i++) {
+      if(strstr(semicolonString[i], ">") != NULL || strstr(semicolonString[i], "<") != NULL){
+        handleredir(semicolonString[i]);
+      }else{
         char ** args = parse_args(semicolonString[i], " ");
         size_t arglen = arg_len(args);
         if(arglen > 0 && strcmp(args[0], "exit") == 0){
@@ -35,7 +32,11 @@ int main(int argc, char const *argv[]) {
         runprocess(args, arglen);
         }
       }
-    } else {
+      }
+    }else if(strstr(string, ">") != NULL || strstr(string, "<") != NULL){
+      handleredir(string);
+    }else {
+      printf("yeet hey\n");
       char ** args = parse_args(string, " ");
       size_t arglen = arg_len(args);
       if(arglen > 0 && strcmp(args[0], "exit") == 0){

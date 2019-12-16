@@ -1,0 +1,23 @@
+bish 1
+bashcommands.c
+bashcommands.h
+bashcommands.o
+foo
+hi
+main.c
+main.o
+Makefile
+parse.c
+parse.h
+parse.o
+program
+README.md
+redirect.c
+redirect.h
+redirect.o
+semicolon.c
+semicolon.h
+semicolon.o
+wholist
+wholist; echo hello
+ --run-script env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
