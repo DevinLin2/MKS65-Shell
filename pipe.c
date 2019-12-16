@@ -14,7 +14,7 @@ void handlePipe(char * string) {
   char * in = parsedString[0]; // first command whos stdout will be used as input
   char * out = parsedString[1]; // takes stdout from in as its stdin
   char line[1000];
-  char cmd[20000]; // hard coded couldnt find a way to read input size 
+  char cmd[20000]; // hard coded couldnt find a way to read input size
   // popen("ls -l", "r");
   // printf("%s\n", "yay");
   FILE *read = popen(in,"r");

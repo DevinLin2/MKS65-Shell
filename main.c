@@ -35,11 +35,7 @@ int main(int argc, char const *argv[]) {
       }else{
         char ** args = parse_args(semicolonString[i], " ");
         size_t arglen = arg_len(args);
-        if(arglen > 0 && strcmp(args[0], "exit") == 0){
-          exit(0);
-        } else {
         runprocess(args, arglen);
-        }
       }
       }
     }else if(strstr(string, ">") != NULL || strstr(string, "<") != NULL){
@@ -47,11 +43,7 @@ int main(int argc, char const *argv[]) {
     }else {
       char ** args = parse_args(string, " ");
       size_t arglen = arg_len(args);
-      if(arglen > 0 && strcmp(args[0], "exit") == 0){
-        exit(0);
-      } else {
       runprocess(args, arglen);
-      }
     }
   }
   return 0;
