@@ -1,5 +1,5 @@
 # MKS65-Shell
-GUSH: Grotesquely Underdeveloped Shell
+# GUSH: Grotesquely Underdeveloped Shell
 
 by Qiong Zhou Huang and Devin Lin
 
