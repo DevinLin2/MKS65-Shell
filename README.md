@@ -17,8 +17,8 @@ Attempted:
   * Multiple pipes don't work
 
 Bugs:
-	Running the shell using a test_functions file might sometimes print the directory more than once
-	
+	* Running the shell using a test_functions file might sometimes print the directory more than once
+	* putting a space before a command makes it not work
 Files & Function Headers:
 main.c
 
