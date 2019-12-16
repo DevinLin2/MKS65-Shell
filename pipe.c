@@ -8,13 +8,24 @@
 #include "parse.h"
 #include "bashcommands.h"
 
+/*
+ * Function:  handlePipe
+ * --------------------
+ * This function takes care of pipes by using popen.
+ * The input is parsed on the pipe and separated into two functions.
+ * In is ran through popen read and out is ran through popen write.
+ *
+ * string: the command line argument.
+ *
+ * returns: Void function prints out the result of the command line argument.
+ */
 void handlePipe(char * string) {
   char ** parsedString = parse_args(string, "|");
   // this only works if there is one pipe and will break for multiple
   char * in = parsedString[0]; // first command whos stdout will be used as input
   char * out = parsedString[1]; // takes stdout from in as its stdin
   char line[1000];
-  char cmd[20000]; // hard coded couldnt find a way to read input size 
+  char cmd[20000]; // hard coded couldnt find a way to read input size
   // popen("ls -l", "r");
   // printf("%s\n", "yay");
   FILE *read = popen(in,"r");

@@ -5,6 +5,19 @@
 #include <string.h>
 #include <errno.h>
 
+/*
+ * Function:  runprocess
+ * --------------------
+ * Does all the forking and execvp stuff.
+ * A fork is automatically made and a check is made to see whether it is the parent or child running the function.
+ * If parent, wait.
+ * If child, checks for special cases where nothing chnges like cd and then does execvp.
+ *
+ * args: the parsed command line arguments .
+ * arg_len: the number of rows in args
+ *
+ * returns: void function. 
+ */
 void runprocess(char ** args, size_t arglen){
   int f = fork();
   int * waitstatus;
