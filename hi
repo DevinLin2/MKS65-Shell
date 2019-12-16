@@ -1,0 +1,16 @@
+total 68
+-rw-r--r-- 1 qiong qiong   902 Dec 10 21:04 bashcommands.c
+-rw-r--r-- 1 qiong qiong    46 Dec 10 21:17 bashcommands.h
+-rw-r--r-- 1 qiong qiong  2936 Dec 10 23:06 bashcommands.o
+-rw-r--r-- 1 qiong qiong     0 Dec 10 23:47 hi
+-rw-r--r-- 1 qiong qiong   716 Dec 10 23:47 main.c
+-rw-r--r-- 1 qiong qiong  2592 Dec 10 23:47 main.o
+-rw-r--r-- 1 qiong qiong   312 Dec 10 22:33 Makefile
+-rw-r--r-- 1 qiong qiong   750 Dec 10 23:47 parse.c
+-rw-r--r-- 1 qiong qiong   111 Dec 10 23:29 parse.h
+-rw-r--r-- 1 qiong qiong  2296 Dec 10 23:47 parse.o
+-rwxr-xr-x 1 qiong qiong 13696 Dec 10 23:47 program
+-rw-r--r-- 1 qiong qiong    13 Dec 10 20:19 README.md
+-rw-r--r-- 1 qiong qiong   839 Dec 10 23:47 redirect.c
+-rw-r--r-- 1 qiong qiong    33 Dec 10 22:35 redirect.h
+-rw-r--r-- 1 qiong qiong  2664 Dec 10 23:47 redirect.o
