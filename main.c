@@ -7,6 +7,7 @@
 #include "bashcommands.h"
 #include "redirect.h"
 #include "semicolon.h"
+#include "pipe.h"
 
 int main(int argc, char const *argv[]) {
   int exit = 0;
@@ -20,6 +21,8 @@ int main(int argc, char const *argv[]) {
     strtok(string, "\n");
     if(strstr(string, ">") != NULL){
       handleredir(string);
+    } else if (strstr(string, "|") != NULL) {
+      handlePipe(string);
     } else if (strstr(string, ";") != NULL) {
       // printf("%d\n", countSemicolon(string));
       semicolonString = handleSemicolon(string);
