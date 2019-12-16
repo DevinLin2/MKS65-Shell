@@ -9,8 +9,17 @@
 #include "semicolon.h"
 #include "pipe.h"
 
+/*
+ * Function:  main
+ * --------------------
+ * prints out gush shell environment
+ * gets current director using getcwd
+ * uses fgets to get input from the user
+ * if it finds a >, <, ; or | in the string, calls the appropriate function
+ * otherwise calls, runprocress, entering in info about number of arguments, obtained from funtions in parse.c
+ * returns: 0
+ */
 int main(int argc, char const *argv[]) {
-  int myexit = 0;
   char string[128];
   while(1){
     char ** semicolonString;
