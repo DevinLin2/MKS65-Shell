@@ -9,14 +9,17 @@
 #include "semicolon.h"
 
 int main(int argc, char const *argv[]) {
-  int exit = 0;
-  while(!exit){
-    char string[128];
+  int myexit = 0;
+  char string[128];
+  while(1){
     char ** semicolonString;
     char * curdir;
     curdir = getcwd(curdir, 64);
-    printf("gush:~%s$ ", curdir);
+    printf("gush: %s ", curdir);
     fgets(string, 128, stdin);
+    if(strstr(string, "exit") != NULL){
+      exit(0);
+    }
     strtok(string, "\n");
      if (strstr(string, ";") != NULL) {
       semicolonString = handleSemicolon(string);
@@ -27,7 +30,7 @@ int main(int argc, char const *argv[]) {
         char ** args = parse_args(semicolonString[i], " ");
         size_t arglen = arg_len(args);
         if(arglen > 0 && strcmp(args[0], "exit") == 0){
-          return 0;
+          exit(0);
         } else {
         runprocess(args, arglen);
         }
@@ -36,11 +39,10 @@ int main(int argc, char const *argv[]) {
     }else if(strstr(string, ">") != NULL || strstr(string, "<") != NULL){
       handleredir(string);
     }else {
-      printf("yeet hey\n");
       char ** args = parse_args(string, " ");
       size_t arglen = arg_len(args);
       if(arglen > 0 && strcmp(args[0], "exit") == 0){
-        return 0;
+        exit(0);
       } else {
       runprocess(args, arglen);
       }

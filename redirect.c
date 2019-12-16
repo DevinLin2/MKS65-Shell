@@ -9,8 +9,8 @@
 #include "bashcommands.h"
 
 void handleredir(char * string){
-  int f = fork();
   int * waitstatus;
+  int f = fork();
   if(f){
     wait(waitstatus);
   }else if(strstr(string, ">") != NULL){
@@ -22,9 +22,9 @@ void handleredir(char * string){
       int writeto = open(args[1], O_WRONLY | O_CREAT, 0644);
       dup2(writeto,STDOUT_FILENO);
       if(strstr(args[0], "<") != NULL){
+        printf("u stupid");
         handleredir(args[0]);
       }else{
-        printf("bish 1\n");
         int err = execvp(leftside[0], leftside);
         if(err){
             printf("error:  %s\n", strerror(errno));
@@ -44,7 +44,6 @@ void handleredir(char * string){
           printf("file error:%s\n", strerror(errno));
         }else{
           dup2(fd, STDIN_FILENO);
-          printf("bish 2\n");
           char ** leftside = parse_args(args[0], " ");
           int run = execvp(leftside[0],leftside);
           if(run < 0){

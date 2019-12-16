@@ -30,7 +30,7 @@ void runprocess(char ** args, size_t arglen){
       for (size_t i = 0; args[i] != NULL; i++) {
         printf("%s", args[i]);
       }
-      printf(": command not found\n" );
+      printf(" not a command\n" );
     } else{
       printf("%s\n", strerror(errno));
     }
