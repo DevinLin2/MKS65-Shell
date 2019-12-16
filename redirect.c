@@ -11,8 +11,12 @@
 /*
  * Function:  handleredir
  * --------------------
- *
- * string: the command line arguments
+ * checks to see if there is a >
+ * if there is a > redirect, open the file on the right of the >,
+ * and then use dup2 to make it so that when the function on the left is run using
+ * execvp, stdout writes that file
+ * otherwise, if there is a <, opens the file on the right and sets it contents to stdin
+ * when the function on the command on the left is run, it uses info from that file
  *
  * returns: void function.
  */
@@ -30,7 +34,6 @@ void handleredir(char * string){
       int writeto = open(args[1], O_WRONLY | O_CREAT, 0644);
       dup2(writeto,STDOUT_FILENO);
       if(strstr(args[0], "<") != NULL){
-        printf("u stupid");
         handleredir(args[0]);
       }else{
         int err = execvp(leftside[0], leftside);
